@@ -1,14 +1,11 @@
 import Config
 
 # Configure your database
-config :scheduler, Scheduler.Repo,
-  username: "postgres",
-  password: "postgres",
+config :nome_do_projeto, NomeDoProjeto.Repo,
+  adapter: Ecto.Adapters.Mongo,
+  database: "nome_do_banco_de_dados",
   hostname: "localhost",
-  database: "scheduler_dev",
-  stacktrace: true,
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+  port: 27017
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
