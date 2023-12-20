@@ -1,4 +1,4 @@
-defmodule Scheduler.DataCase do
+defmodule SchedulerLesson.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -10,7 +10,7 @@ defmodule Scheduler.DataCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use Scheduler.DataCase, async: true`, although
+  by setting `use SchedulerLesson.DataCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -18,17 +18,17 @@ defmodule Scheduler.DataCase do
 
   using do
     quote do
-      alias Scheduler.Repo
+      alias SchedulerLesson.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import Scheduler.DataCase
+      import SchedulerLesson.DataCase
     end
   end
 
   setup tags do
-    Scheduler.DataCase.setup_sandbox(tags)
+    SchedulerLesson.DataCase.setup_sandbox(tags)
     :ok
   end
 
@@ -36,6 +36,8 @@ defmodule Scheduler.DataCase do
   Sets up the sandbox based on the test tags.
   """
   def setup_sandbox(tags) do
+    pid = Ecto.Adapters.SQL.Sandbox.start_owner!(SchedulerLesson.Repo, shared: not tags[:async])
+    on_exit(fn -> Ecto.Adapters.SQL.Sandbox.stop_owner(pid) end)
   end
 
   @doc """

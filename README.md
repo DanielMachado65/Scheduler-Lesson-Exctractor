@@ -1,4 +1,4 @@
-# Scheduler
+# SchedulerLesson
 
 To start your Phoenix server:
 

@@ -7,19 +7,20 @@
 # General application configuration
 import Config
 
-config :scheduler,
+config :scheduler_lesson,
+  ecto_repos: [SchedulerLesson.Repo],
   generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
-config :scheduler, SchedulerWeb.Endpoint,
+config :scheduler_lesson, SchedulerLessonWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Phoenix.Endpoint.Cowboy2Adapter,
   render_errors: [
-    formats: [html: SchedulerWeb.ErrorHTML, json: SchedulerWeb.ErrorJSON],
+    formats: [html: SchedulerLessonWeb.ErrorHTML, json: SchedulerLessonWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: Scheduler.PubSub,
-  live_view: [signing_salt: "vvWCnWh3"]
+  pubsub_server: SchedulerLesson.PubSub,
+  live_view: [signing_salt: "lCnrcpWo"]
 
 # Configures the mailer
 #
@@ -28,7 +29,7 @@ config :scheduler, SchedulerWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :scheduler, Scheduler.Mailer, adapter: Swoosh.Adapters.Local
+config :scheduler_lesson, SchedulerLesson.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure esbuild (the version is required)
 config :esbuild,
