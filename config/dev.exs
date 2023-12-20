@@ -4,7 +4,7 @@ import Config
 config :scheduler_lesson, SchedulerLesson.Repo,
   adapter: Mongo.Ecto,
   database: "scheduler_lesson_db",
-  hostname: "mongodb",
+  hostname: "localhost",
   port: 27017
 
 # For development, we disable any cache and enable
