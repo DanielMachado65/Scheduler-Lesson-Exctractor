@@ -2,7 +2,7 @@ import Config
 
 # Configure your database
 config :scheduler_lesson, SchedulerLesson.Repo,
-  adapter: Ecto.Adapters.Mongo,
+  adapter: Mongo.Ecto,
   database: "scheduler_lesson_db",
   hostname: "mongodb",
   port: 27017

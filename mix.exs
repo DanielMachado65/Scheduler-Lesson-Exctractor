@@ -19,7 +19,7 @@ defmodule SchedulerLesson.MixProject do
   def application do
     [
       mod: {SchedulerLesson.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :mongodb_ecto]
     ]
   end
 
