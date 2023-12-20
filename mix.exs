@@ -34,9 +34,17 @@ defmodule Scheduler.MixProject do
     [
       {:phoenix, "~> 1.7.10"},
       {:mongodb_ecto, "~> 1.1"},
+      {:poolboy, "~> 1.5"},
       {:phoenix_html, "~> 3.3"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
+      {:floki, ">= 0.30.0", only: :test},
+      {:swoosh, "~> 1.3"},
+      {:finch, "~> 0.13"},
+      {:telemetry_metrics, "~> 0.6"},
+      {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.20"},
+      {:jason, "~> 1.2"},
+      {:dns_cluster, "~> 0.1.1"},
       {:plug_cowboy, "~> 2.5"}
     ]
   end
