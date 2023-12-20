@@ -2,13 +2,10 @@ import Config
 
 # Configure your database
 config :scheduler_lesson, SchedulerLesson.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "scheduler_lesson_dev",
-  stacktrace: true,
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+  adapter: Ecto.Adapters.Mongo,
+  database: "scheduler_lesson_db",
+  hostname: "mongodb",
+  port: 27017
 
 # For development, we disable any cache and enable
 # debugging and code reloading.

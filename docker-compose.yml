@@ -1,24 +1,26 @@
 version: "3.8"
+
 services:
-  mongo:
+  mongodb:
     image: mongo:latest
-    container_name: my_app_mongo
-    environment:
-      MONGO_INITDB_DATABASE: my_app_db
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: rootpassword
     ports:
-      - 27017:27017
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
     volumes:
-      - mongodb_data_container:/data/db
-      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
-      - ./_build:/app/_build
+      - mongodb_data:/data/db
+
   app:
-    build:
-      context: .
-    container_name: scheduler
+    build: .
+    depends_on:
+      - mongodb
+    environment:
+      MONGO_HOST: mongodb
+      MONGO_USERNAME: root
+      MONGO_PASSWORD: example
     ports:
       - "4000:4000"
-    volumes:
-      - ./:/app
-    command: mix phx.server
+
+volumes:
+  mongodb_data:

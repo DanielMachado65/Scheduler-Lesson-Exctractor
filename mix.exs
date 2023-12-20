@@ -34,8 +34,7 @@ defmodule SchedulerLesson.MixProject do
     [
       {:phoenix, "~> 1.7.10"},
       {:phoenix_ecto, "~> 4.4"},
-      {:ecto_sql, "~> 3.10"},
-      {:postgrex, ">= 0.0.0"},
+      {:mongodb_ecto, "~> 1.1"},
       {:phoenix_html, "~> 3.3"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, "~> 0.20.1"},
