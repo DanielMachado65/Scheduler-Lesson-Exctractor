@@ -8,7 +8,6 @@
 import Config
 
 config :scheduler,
-  ecto_repos: [Scheduler.Repo],
   generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
