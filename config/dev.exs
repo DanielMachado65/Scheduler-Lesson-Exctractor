@@ -3,8 +3,9 @@ import Config
 # Configure your database
 config :scheduler_lesson, SchedulerLesson.Repo,
   adapter: Mongo.Ecto,
-  uri: "mongodb://admin:password@mongo:27017/scheduler_lesson_dev",
-  pool_size: 10
+  hostname: "localhost",
+  port: 27017,
+  database: "scheduler_lesson_dev"
 
 config :scheduler_lesson, SchedulerLessonWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4000],
