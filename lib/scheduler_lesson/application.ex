@@ -10,9 +10,6 @@ defmodule SchedulerLesson.Application do
     children = [
       SchedulerLessonWeb.Telemetry,
       SchedulerLesson.Repo,
-      {Ecto.Migrator,
-        repos: Application.fetch_env!(:scheduler_lesson, :ecto_repos),
-        skip: skip_migrations?()},
       {DNSCluster, query: Application.get_env(:scheduler_lesson, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: SchedulerLesson.PubSub},
       # Start a worker by calling: SchedulerLesson.Worker.start_link(arg)
