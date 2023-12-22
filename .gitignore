@@ -31,3 +31,4 @@ scheduler_lesson-*.tar
 
 .elixir_ls
 .elixir_ls/*
+*elixir_ls*
