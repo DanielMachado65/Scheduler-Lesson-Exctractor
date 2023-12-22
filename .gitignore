@@ -29,3 +29,5 @@ scheduler_lesson-*.tar
 *.db
 *.db-*
 
+.elixir_ls
+.elixir_ls/*
