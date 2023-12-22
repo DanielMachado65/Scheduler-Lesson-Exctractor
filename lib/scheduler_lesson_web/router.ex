@@ -12,6 +12,8 @@ defmodule SchedulerLessonWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+
+    plug :fetch_session
   end
 
   scope "/", SchedulerLessonWeb do
