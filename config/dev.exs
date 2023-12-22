@@ -2,10 +2,9 @@ import Config
 
 # Configure your database
 config :scheduler_lesson, SchedulerLesson.Repo,
-  database: Path.expand("../scheduler_lesson_dev.db", Path.dirname(__ENV__.file)),
-  pool_size: 5,
-  stacktrace: true,
-  show_sensitive_data_on_connection_error: true
+  adapter: Mongo.Ecto,
+  uri: "mongodb://admin:password@mongo:27017/scheduler_lesson_dev",
+  pool_size: 10
 
 config :scheduler_lesson, SchedulerLessonWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4000],
