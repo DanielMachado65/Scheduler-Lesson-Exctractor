@@ -31,3 +31,6 @@ scheduler_lesson-*.tar
 
 .elixir_ls
 .elixir_ls/*
+
+data
+mongodb_data
