@@ -35,6 +35,7 @@ defmodule SchedulerLesson.MixProject do
       {:phoenix, "~> 1.7.10"},
       {:phoenix_ecto, "~> 4.4"},
       {:ecto_sql, "~> 3.10"},
+      {:mongodb_ecto, "~> 1.0"},
       {:ecto_sqlite3, ">= 0.0.0"},
       {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller, "~> 1.0"},
