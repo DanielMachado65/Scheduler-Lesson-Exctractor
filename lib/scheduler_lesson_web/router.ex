@@ -5,9 +5,9 @@ defmodule SchedulerLessonWeb.Router do
     plug :accepts, ["json"]
   end
 
-  get "/health_check", HealthCheckController, :index
-
   scope "/api", SchedulerLessonWeb do
     pipe_through :api
+
+    get "/health_check", HealthCheckController, :index
   end
 end
