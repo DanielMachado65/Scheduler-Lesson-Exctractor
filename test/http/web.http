@@ -1,5 +1,5 @@
 # @name HealthCheck
 # @description This is a health check for the application
 
-GET {{bornApi}}/health_check
+GET {{bornApi}}/api/health_check
 Content-Type: application/json
