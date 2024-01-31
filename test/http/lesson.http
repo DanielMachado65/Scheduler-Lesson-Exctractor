@@ -1,0 +1,11 @@
+# @name Lesson
+# @description This is a health check for the application
+
+POST {{bornApi}}/api/lesson
+Content-Type: application/json
+
+{
+    "name": "Lesson 1",
+    "description": "This is a lesson",
+    "order": 1
+}
