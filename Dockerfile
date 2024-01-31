@@ -1,11 +1,12 @@
-FROM elixir:1.10.3
+FROM elixir:1.14
 
-RUN mkdir app/
-COPY . /app
+RUN mix local.hex --force && \
+    mix local.rebar --force
 
 WORKDIR /app
 
-RUN mix local.hex --force
-RUN mix local.rebar --force
-RUN mix deps.get
-RUN mix do compile
+COPY . .
+
+RUN mix do deps.get, deps.compile
+
+CMD ["mix", "phx.server"]
