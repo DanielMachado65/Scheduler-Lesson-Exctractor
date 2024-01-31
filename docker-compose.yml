@@ -15,10 +15,11 @@ services:
 
   app:
     build: .
+    container_name: app
     ports:
       - "4000:4000"
     volumes:
-      - .:/app
+      - ./:/app
     depends_on:
       - mongodb
     environment:
