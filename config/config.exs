@@ -15,6 +15,13 @@ config :scheduler_lesson, SchedulerLessonWeb.Endpoint,
   pubsub_server: SchedulerLesson.PubSub,
   live_view: [signing_salt: "7mE4uNTa"]
 
+# Scheduler
+config :scheduler_lesson, SchedulerLesson.Scheduler,
+  jobs: [
+    {"@weekly", {SchedulerLesson.SchedulerModule, :my_function, []}}
+  ]
+
+
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
