@@ -18,9 +18,8 @@ config :scheduler_lesson, SchedulerLessonWeb.Endpoint,
 # Scheduler
 config :scheduler_lesson, SchedulerLesson.Scheduler,
   jobs: [
-    {"@weekly", {SchedulerLesson.SchedulerModule, :my_function, []}}
+    {"@weekly", {SchedulerLesson.Task, :work, []}}
   ]
-
 
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

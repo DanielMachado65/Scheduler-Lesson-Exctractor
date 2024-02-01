@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :scheduler_lesson, SchedulerLesson.Repo,
   adapter: Mongo.Ecto,
-  hostname: "mongodb",
+  hostname: "localhost",
   port: 27017,
   database: "scheduler_lesson_dev",
   migration_source: "some_other_table_for_schema_migrations"
