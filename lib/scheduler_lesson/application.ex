@@ -1,8 +1,4 @@
 defmodule SchedulerLesson.Application do
-  # See https://hexdocs.pm/elixir/Application.html
-  # for more information on OTP Applications
-  @moduledoc false
-
   use Application
 
   @impl true
@@ -10,7 +6,7 @@ defmodule SchedulerLesson.Application do
     children = [
       SchedulerLessonWeb.Telemetry,
       SchedulerLesson.Repo,
-      {Quantum, [name: SchedulerLesson.Scheduler]}
+      SchedulerLesson.Scheduler,
       {DNSCluster, query: Application.get_env(:scheduler_lesson, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: SchedulerLesson.PubSub},
       SchedulerLessonWeb.Endpoint
