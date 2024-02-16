@@ -10,5 +10,8 @@ defmodule SchedulerLessonWeb.Router do
 
     get "/health_check", HealthCheckController, :index
     # post "/lesson", DocumentController, :create
+
+    resources "/lessons", LessonController, only: [:index, :show, :create] do
+    end
   end
 end
