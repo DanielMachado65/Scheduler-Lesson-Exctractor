@@ -15,10 +15,15 @@ config :scheduler_lesson, SchedulerLessonWeb.Endpoint,
   pubsub_server: SchedulerLesson.PubSub,
   live_view: [signing_salt: "7mE4uNTa"]
 
+config :logger, level: :debug
+
 # Scheduler
 config :scheduler_lesson, SchedulerLesson.Scheduler,
+  debug_logging: true,
   jobs: [
-    {"@weekly", {SchedulerLesson.Task, :work, []}}
+    # run job every 5 seconds
+    {"* * * * * *", {SchedulerLesson.Task, :work, []}}
+    # {"@weekly", {SchedulerLesson.Task, :work, []}}
   ]
 
 config :logger, :console,
