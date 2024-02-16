@@ -22,7 +22,7 @@ config :scheduler_lesson, SchedulerLesson.Scheduler,
   debug_logging: true,
   jobs: [
     # run job every 5 seconds
-    {"* * * * * *", {SchedulerLesson.Task, :work, []}}
+    {"*/5 * * * * *", {SchedulerLesson.Task, :work, []}}
     # {"@weekly", {SchedulerLesson.Task, :work, []}}
   ]
 

@@ -20,3 +20,15 @@ config :scheduler_lesson, dev_routes: true
 config :logger, :console, format: "[$level] $message\n"
 config :phoenix, :stacktrace_depth, 20
 config :phoenix, :plug_init_mode, :runtime
+
+# hot reload
+config :scheduler_lesson, SchedulerLessonWeb.Endpoint,
+  live_reload: [
+    patterns: [
+      ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
+      ~r{priv/gettext/.*(po)$},
+      ~r{lib/scheduler_lesson_web/views/.*(ex)$},
+      ~r{lib/scheduler_lesson_web/templates/.*(eex)$},
+      ~r{lib/scheduler_lesson_web/live/.*(ex)$}
+    ]
+  ]
