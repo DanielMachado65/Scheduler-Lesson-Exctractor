@@ -6,8 +6,10 @@ defmodule SchedulerLessonWeb.LessonController do
   alias SchedulerLesson.Repo
   alias SchedulerLesson.Lesson
 
+  import Ecto.Query
+
   def index(conn, _params) do
-    lessons = Repo.all(Lesson)
+    lessons = sample_query()
 
     conn
     |> put_status(:ok)
@@ -49,5 +51,12 @@ defmodule SchedulerLessonWeb.LessonController do
   def show(conn, %{"id" => id}) do
     lesson = Lesson |> Repo.get(id)
     json(conn, %{lesson: lesson})
+  end
+
+  defp sample_query do
+    query =
+      from(w in Lesson)
+
+    Repo.all(query)
   end
 end
